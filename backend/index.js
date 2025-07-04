@@ -49,10 +49,42 @@ import cookieParser from "cookie-parser"
 import userRouter from "./routes/user.routes.js"
 
 const app = express()
+
+
+
+
+// app.use(cors({
+//     origin: "http://localhost:5173",
+//     credentials: true
+// }))
+
+
+
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://frontendassistant-h4gd.onrender.com"
+];
+
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
-}))
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
+
+
+
+
+
+
+
+
+
 const port = process.env.PORT || 5000
 app.use(express.json())
 app.use(cookieParser())
