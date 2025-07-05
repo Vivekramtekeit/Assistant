@@ -1,7 +1,3 @@
-
-
-
-
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -9,6 +5,7 @@ export const userDataContext = createContext();
 
 function UserContext({ children }) {
   const serverUrl = "https://virtualassistantbackend-ztzi.onrender.com";
+    //  const serverUrl="http://localhost:8000"
   const [userData, setUserData] = useState(null);
   const [frontendImage, setFrontendImage] = useState(null);
   const [backendImage, setBackendImage] = useState(null);
@@ -56,20 +53,21 @@ function UserContext({ children }) {
   }, []);
 
   return (
-    <userDataContext.Provider value={{
-      serverUrl,
-      userData,
-      setUserData,
-      backendImage,
-      setBackendImage,
-      frontendImage,
-      setFrontendImage,
-      selectedImage,
-      setSelectedImage,
-      getGeminiResponse,
-    }}>
-      {children}
-    </userDataContext.Provider>
+<userDataContext.Provider value={{
+  serverUrl,
+  userData,
+  setUserData,
+  backendImage,
+  setBackendImage,
+  frontendImage,
+  setFrontendImage,
+  selectedImage,
+  setSelectedImage,
+  getGeminiResponse,
+}}>
+  {children}
+</userDataContext.Provider>
+
   );
 }
 
