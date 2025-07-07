@@ -38,9 +38,29 @@ app.use(cookieParser())
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
 
+
+
+
+
+
+
+app.get("/", (req, res) => {
+  res.send("Server is up and running.");
+});
+
+
+
+
+
 app.listen(port, () => {
     connectDb()
     console.log("server started")
 })
+
+
+
+
+
+
 
 
