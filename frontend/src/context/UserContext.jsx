@@ -5,8 +5,9 @@ export const userDataContext = createContext();
 
 function UserContext({ children }) {
   //why not working
-  const serverUrl = "https://virtualassistantbackend-ztzi.onrender.com";
-    //  const serverUrl="http://localhost:8000"
+  const serverUrl =  "https://assistant-ten-peach.vercel.app/";
+  //const serverUrl = "https://virtualassistantbackend-ztzi.onrender.com";
+    //  const serverUrl="http://localhost:8000";
   const [userData, setUserData] = useState(null);
   const [frontendImage, setFrontendImage] = useState(null);
   const [backendImage, setBackendImage] = useState(null);
